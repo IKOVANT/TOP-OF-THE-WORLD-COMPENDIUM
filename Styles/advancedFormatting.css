@@ -1,0 +1,196 @@
+h1 {
+    user-select: none;
+    pointer-events: none;
+
+    z-index: 100;
+}
+footer {
+    user-select: none;
+    pointer-events: none;
+
+    z-index: 100;
+}
+
+.thumbnail {
+    max-height: 256px;
+}
+
+.comicPage {
+    max-height: 512px;
+}
+
+.megaFlipBook {
+    perspective: 2048px;
+    flex-grow: 1;
+
+    position: relative;
+
+    >* {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+    }
+}
+*:has(>.flipBook) {
+    --offset: 0;
+    opacity: calc(1 - abs(var(--offset)) * 0.4);
+
+    transition: all 0.4s;
+
+    transform:
+        translateY(calc((min(100vh - 180px, 100vw / 1.4919) + 32px) * var(--offset)))
+    ;
+}
+.flipBook {
+    position: relative;
+    user-select: none;
+    aspect-ratio: 1;
+    /* aspect-ratio: 1.5217; */
+    aspect-ratio: 1.4919;
+
+    max-width: 100%;
+    max-height: calc(min(100%, 100vh - 180px));
+
+    transition: all 0.2s;
+}
+.flipBookInner {
+    --gap: 0px;
+
+    place-content: center;
+    align-items: center;
+    perspective: 2048px;
+    aspect-ratio: 1.4919;
+    flex-grow: 1;
+
+    position: relative;
+    width: 10px;
+
+    >* {
+        z-index: -1;
+
+        position: absolute;
+        width: unset;
+
+        transition: all 0.2s;
+
+        transform:
+            rotateY(0deg)
+            translateX(var(--gap))
+            translateX(50%)
+            translateX(calc(-2px * (var(--offset)/2 - 2)));
+
+        &:nth-child(even) {
+            transform:
+                rotateY(0deg)
+                translateX(var(--gap))
+                translateX(50%)
+                translateX(0px)
+                scaleX(-1);
+        }
+    }
+    >*:not(.oldPage, .previousPage) {
+        z-index: calc(-1 - abs(var(--offset)));
+
+        &:nth-child(even) {
+            visibility: hidden;
+            
+            z-index: calc(-1 - abs(var(--offset) - 2));
+        }
+    }
+    >.currentPage {
+        z-index: 0;
+
+        transform:
+            rotateY(0deg)
+            translateX(var(--gap))
+            translateX(50%)
+            translateX(0px);
+    }
+    >.previousPage {
+        transform:
+                rotateY(-180deg)
+                translateX(var(--gap))
+                translateX(50%)
+                translateX(0px)
+                scaleX(-1);
+    }
+    >.oldPage {
+        visibility: hidden;
+
+        transform:
+            rotateY(-180deg)
+            translateX(var(--gap))
+            translateX(0px)
+            translateX(50%);
+        
+        &:nth-child(even) {
+            visibility: visible;
+
+            transform:
+                rotateY(-180deg)
+                translateX(var(--gap))
+                translateX(50%)
+                translateX(calc(2px * (var(--offset)/2)))
+                scaleX(-1);
+        }
+    }
+}
+.flipBookPage {
+    --offset: 0;
+
+    place-content: center;
+
+    width: calc(50% - 1px);
+    max-width: calc(50% - 1px);
+    height: 100%;
+    max-height: fit-content;
+}
+.flipBookPage::after {
+    content: '';
+    display: inline-block;
+
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+
+    box-shadow:
+        inset 2px 0px 4px rgb(0, 0, 0, 0.5),
+        2px 0px 2px rgb(0, 0, 0, 0.2),
+        -1px 0px 1px rgb(255, 255, 255, 0.1);
+}
+.flipBookPage:nth-child(even)::after {
+    box-shadow:
+        inset -2px 0px 4px rgb(0, 0, 0, 0.5),
+        -2px 0px 2px rgb(0, 0, 0, 0.2),
+        1px 0px 1px rgb(255, 255, 255, 0.1);
+}
+.leftSpread>img {
+    object-fit: cover;
+    object-position: left;
+
+    width: 100%;
+    height: 100%;
+}
+.rightSpread>img {
+    object-fit: cover;
+    object-position: right;
+
+    width: 100%;
+    height: 100%;
+}
+/* .flipBookPrev, .flipBookNext {
+    z-index: 100;
+    opacity: 0%;
+
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 50%;
+    height: 100%;
+
+    &.flipBookNext {
+        left: 50%;
+    }
+} */

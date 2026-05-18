@@ -1,0 +1,56 @@
+:root {
+    --background-color: rgb(128, 128, 128);
+    --button-color: rgb(64, 64, 64);
+
+    --global-padding: 8px;
+
+    background-color: var(--background-color);
+}
+
+/* Elements */
+    body {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: calc(100% - var(--global-padding) * 2);
+        height: calc(100% - var(--global-padding) * 2);
+        
+
+        margin: var(--global-padding);
+    }
+    img {
+        object-fit: contain;
+
+        max-width: 100%;
+        max-height: min(100%);
+    }
+
+/* Classes */
+    .flex {
+        display: flex;
+        gap: var(--global-padding);
+
+        flex-direction: column;
+
+        &.horizontal {
+            flex-direction: row;
+        }
+        &.center {
+            place-content: center;
+        }
+    }
+    .grow {
+        flex-grow: 1;
+    }
+    .fill {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+    }
+    .VFill {
+        position: absolute;
+        top: 0px;
+        height: 100%;
+    }

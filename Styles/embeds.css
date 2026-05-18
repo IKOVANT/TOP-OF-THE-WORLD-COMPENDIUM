@@ -1,0 +1,140 @@
+.embed {
+    display: flex;
+    gap: var(--global-padding);
+
+    position: relative;
+    width: 256px;
+    height: calc(64px);
+    background-color: var(--button-color);
+
+    padding: var(--global-padding);
+
+    *.thumbnail {
+        width: 64px;
+    }
+    *.favicon {
+        position: absolute;
+        left: calc(64px - var(--global-padding));
+        top: calc(64px - var(--global-padding));
+        width: 24px;
+        height: 24px;
+        background-color: var(--button-color);
+    }
+    *.details {
+        display: flex;
+        flex-direction: column;
+        gap: var(--global-padding);
+    }
+}
+
+a:has(.embed.newGrounds) {
+    text-decoration: none;
+}
+.embed.newGrounds {
+    color: rgb(255, 255, 255);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    gap: 4px;
+
+    width: fit-content;
+    height: min-content;
+    background-color: rgb(32, 36, 39);
+
+    border-radius: 4px;
+
+    .leftSide {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .logo {
+        width: 76px;
+    }
+    .ratings {
+        display: flex;
+        gap: 2px;
+
+        font-style: italic;
+        background-color: #000;
+
+        padding: 4px;
+
+        border-radius: 4px;
+
+        box-shadow:
+            inset 0px 0px 0px 1px #000,
+            inset 0px 0px 0px 2px rgb(255, 255, 255, 0.1)
+        ;
+    }
+    .ratings>.rating {
+        width: 16px;
+        height: 16px;
+
+        background-image: url('https://img.ngfiles.com/icons/ul-ratingFilter.webp');
+        background-size: 64px;
+    }
+    .thumbnail {
+        height: 64px;
+        background-color: #000;
+
+        border-radius: 4px;
+
+        padding: 6px;
+
+        box-shadow:
+            inset 0px 0px 0px 1px #000,
+            inset 0px 0px 0px 2px rgb(255, 255, 255, 0.1)
+        ;
+    }
+    .details {
+
+        width: 160px;
+        height: fit-content;
+        background-color: black;
+
+        padding: 2px;
+
+        border-radius: 4px;
+    }
+    .details>.header {
+        display: flex;
+        gap: 4px;
+
+        height: 16px;
+        background-image: linear-gradient(to bottom, #4E575E 0%, #34393D 48%, #282B30 53%, #202427 100%);
+        
+        padding: 2px;
+        
+        border-radius: 2px 2px 0px 0px;
+
+        &::before {
+            content: '';
+            display: inline-block;
+            aspect-ratio: 1;
+
+            height: 16px;
+            background-image: 
+                url('https://img.ngfiles.com/icons/h2-all-hd.webp'),
+                linear-gradient(rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5))
+            ;
+            background-size: cover;
+
+            border-radius: 2px;
+        }
+        &.profile::before {
+            background-position-y: -32px;
+        }
+    }
+    .details>.profile:not(.header) {
+        display: flex;
+
+        color: rgb(253, 162, 56);
+        font-weight: bold;
+
+        >img {
+            height: 32px;
+
+            border-radius: 50%;
+        }
+    }
+}
