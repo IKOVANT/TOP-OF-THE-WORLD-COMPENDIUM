@@ -1,5 +1,3 @@
-import { webPages } from "../Modules/fileSources.js";
-
 // Variables
 var flipBooks = document.getElementsByClassName('flipBook');
 var activeFlipBook = flipBooks[0];
@@ -163,22 +161,22 @@ function megaFlipBook_previous () {
     updateFlipbooks();
 };
 
-function goToNextWebPage () {
-    let thisPage = document.getElementsByTagName('title')[0].innerHTML;
-    let newPage = webPages[webPages[thisPage].next].link;
+// function goToNextWebPage () {
+//     let thisPage = document.getElementsByTagName('title')[0].innerHTML;
+//     let newPage = webPages[webPages[thisPage].next].link;
 
-    if (newPage != null) {
-        window.open('./Chapters/' + newPage, '_self');
-    };
-};
-function goToPreviousWebPage () {
-    let thisPage = document.getElementsByTagName('title')[0].innerHTML;
-    let newPage = webPages[webPages[thisPage].previous].link;
+//     if (newPage != null) {
+//         window.open('./Chapters/' + newPage, '_self');
+//     };
+// };
+// function goToPreviousWebPage () {
+//     let thisPage = document.getElementsByTagName('title')[0].innerHTML;
+//     let newPage = webPages[webPages[thisPage].previous].link;
 
-    if (newPage != null) {
-        window.open('./Chapters/' + newPage, '_self');
-    };
-}
+//     if (newPage != null) {
+//         window.open('./Chapters/' + newPage, '_self');
+//     };
+// }
 
 function updateFlipbooks () {
     let activeFlipBookID = 0;

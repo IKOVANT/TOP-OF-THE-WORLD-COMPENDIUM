@@ -1,3 +1,5 @@
+import { prefered_database } from "./saveData.js";
+
 // Classes
 class URL {
     constructor (link = 'DRIVE://1X2RS296nQoZK1yf315O2FzfypYyiaou5') {
@@ -41,7 +43,7 @@ class SmartSource {
         this.addSources(sources)
     };
     get URL () {
-        return this.URLs[this.sources.indexOf(fileSource)];
+        return this.URLs[this.sources.indexOf(prefered_database)];
     };
     addSources (sources = ['']) {
         for (let i = 0; i < sources.length; i++) {
