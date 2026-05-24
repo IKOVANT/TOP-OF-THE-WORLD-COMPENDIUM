@@ -33,10 +33,12 @@ var loadedChapter = chapterLookup[queryChapter] != null ? written_chapters[chapt
 
 let comicElement = document.getElementsByClassName('comic')[0];
 
+let githubPrefix = window.location.href.includes('github.io') ? 'TOP-OF-THE-WORLD-COMPENDIUM' : '';
+
 // Contents
 
 if (window.location.search == '' || chapterLookup[queryChapter] == null) {
-    window.location.replace('./?chapter=1');
+    window.location.replace('../' + githubPrefix + '/Read/?chapter=1');
 };
 
 console.log(written_chapters[chapterLookup[queryChapter]].pages.length);
@@ -78,10 +80,10 @@ document.onkeypress = function (e) {
             comic_previousPage();
             break;
         case 'KeyS':
-            window.open('../Read/?chapter=' + (Math.min(Number(queryChapter) + 1, sequential_chapter_pointers.length)), '_self');
+            window.open(githubPrefix + '/Read/?chapter=' + (Math.min(Number(queryChapter) + 1, sequential_chapter_pointers.length)), '_self');
             break;
         case 'KeyW':
-            window.open('../Read/?chapter=' + (Math.max(Number(queryChapter) - 1, 1)), '_self');
+            window.open(githubPrefix + '/Read/?chapter=' + (Math.max(Number(queryChapter) - 1, 1)), '_self');
             break;
         case 'Digit1':
             window.open('../', '_self');

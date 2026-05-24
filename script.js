@@ -5,6 +5,8 @@ import { chapterLengths } from "./Modules/fileSources.js";
 // Variables
 let chapterSelectElement = document.getElementById('chapterSelect');
 
+let githubPrefix = window.location.href.includes('github.io') ? 'TOP-OF-THE-WORLD-COMPENDIUM' : '';
+
 // Contents
 
 for (let chapter = 0; chapter < sequential_chapter_pointers.length; chapter++) {
@@ -34,7 +36,7 @@ document.onkeydown = function (e) {
     console.log(e.code)
     switch (e.code) {
         case 'Digit2':
-            window.open('./Read/?chapter=1', '_self');
+            window.open(githubPrefix + '/Read/?chapter=1', '_self');
             break;
     };
 };
