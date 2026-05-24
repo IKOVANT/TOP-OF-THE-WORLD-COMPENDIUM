@@ -1,4 +1,4 @@
-import { files } from './fileSources.js'
+import { generated_smart_files } from '../JS-Databases/Smart-Files.js';
 
 // Functions
 function url (url = '') {
@@ -11,7 +11,7 @@ function url (url = '') {
 
     switch (root.toUpperCase()) {
         case 'SMART':
-            return files[link].URL;
+            return generated_smart_files[link].URL;
         case 'FAVICON':
             return getFavicon(link);
         case 'DRIVE':

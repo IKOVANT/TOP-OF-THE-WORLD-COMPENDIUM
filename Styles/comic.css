@@ -1,0 +1,70 @@
+.comic {
+    --current-page: 0;
+    --last-page: 1;
+
+    perspective: 2048px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+
+    
+    
+}
+.comicPage {
+    --index: 0;
+    --placement: 1;
+    --index-rel: calc(var(--index) - var(--current-page));
+    --index-snapped: calc(abs(round(down, var(--index)/2)));
+    --index-rel-snapped: calc(abs(round(down, var(--index-rel)/2)));
+
+    
+    z-index: calc(var(--last-page) - abs(var(--index-rel) + 1));
+
+    position: absolute;
+    max-width: 50%;
+    max-height: 100%;
+
+    transition: all 0.2s;
+
+    --page-overlap: calc((2px * var(--last-page)) - (2px * (var(--last-page) - var(--index-rel-snapped))));
+
+    transform:
+        rotateY(-90deg)
+        rotateY(calc(90deg * var(--placement)))
+        translateX(50%)
+        translateX(var(--page-overlap))
+    ;
+    box-shadow:
+        -1px 0px 0px #FFF,
+        0px 0px 1px #000
+    ;
+
+    &:nth-child(even) {
+        transform:
+            rotateY(-90deg)
+            rotateY(calc(90deg * var(--placement)))
+            translateX(50%)
+            translateX(var(--page-overlap))
+            rotateY(180deg)
+        ;
+    }
+}
+.comicPage.spread {
+    aspect-ratio: 1000/1342;
+    width: unset;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: left;
+
+    &:nth-child(odd) {
+        object-position: right;
+    }
+}

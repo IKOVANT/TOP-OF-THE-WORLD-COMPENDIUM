@@ -1,0 +1,12 @@
+.chapterLink {
+    color: #fff;
+
+    background-color: black;
+    width: fit-content;
+
+    padding: var(--global-padding);
+    padding-right: calc(4 * var(--global-padding));
+}
+.chapterThumbnail {
+    height: 128px;
+}
