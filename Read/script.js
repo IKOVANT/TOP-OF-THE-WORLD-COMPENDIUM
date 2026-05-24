@@ -80,13 +80,21 @@ document.onkeypress = function (e) {
             comic_previousPage();
             break;
         case 'KeyS':
-            window.open('../Read/?chapter=' + (Math.min(Number(queryChapter) + 1, sequential_chapter_pointers.length)), '_self');
+            nextComic();
             break;
         case 'KeyW':
-            window.open('../Read/?chapter=' + (Math.max(Number(queryChapter) - 1, 1)), '_self');
+            previousComic();''
             break;
         case 'Digit1':
             window.open('../', '_self');
             break;
     };
+};
+
+// Functions
+function nextComic () {
+    window.open('../'+githubPrefix+'Read/?chapter=' + (Math.min(Number(queryChapter) + 1, sequential_chapter_pointers.length)), '_self');
+};
+function previousComic () {
+    window.open('../'+githubPrefix+'Read/?chapter=' + (Math.max(Number(queryChapter) - 1, 1)), '_self');
 };
