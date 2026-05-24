@@ -80,10 +80,10 @@ document.onkeypress = function (e) {
             comic_previousPage();
             break;
         case 'KeyS':
-            window.open(githubPrefix + '/Read/?chapter=' + (Math.min(Number(queryChapter) + 1, sequential_chapter_pointers.length)), '_self');
+            window.open('Read/?chapter=' + (Math.min(Number(queryChapter) + 1, sequential_chapter_pointers.length)), '_self');
             break;
         case 'KeyW':
-            window.open(githubPrefix + '/Read/?chapter=' + (Math.max(Number(queryChapter) - 1, 1)), '_self');
+            window.open('Read/?chapter=' + (Math.max(Number(queryChapter) - 1, 1)), '_self');
             break;
         case 'Digit1':
             window.open('../', '_self');
