@@ -36,7 +36,7 @@ document.onkeydown = function (e) {
     console.log(e.code)
     switch (e.code) {
         case 'Digit2':
-            window.open(githubPrefix + '/Read/?chapter=1', '_self');
+            window.open('../Read/?chapter=1', '_self');
             break;
     };
 };
