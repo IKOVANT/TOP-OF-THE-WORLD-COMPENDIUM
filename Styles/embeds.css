@@ -32,8 +32,9 @@ a:has(.embed.newGrounds) {
 }
 .embed.newGrounds {
     color: rgb(255, 255, 255);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Arial, Verdana, Geneva, Tahoma, sans-serif;
     font-size: 12px;
+    font-weight: bold;
     gap: 4px;
 
     width: fit-content;
@@ -98,6 +99,8 @@ a:has(.embed.newGrounds) {
     }
     .details>.header {
         display: flex;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: normal;
         gap: 4px;
 
         height: 16px;

@@ -112,7 +112,7 @@ function flipBook_flipForward (flipBook) {
     let flipProgress = Number(flipBook.getAttribute('flip-progress'));
     let flipMax = Number(flipBook.getAttribute('flip-max'));
 
-     if (flipProgress < flipMax) {
+    if (flipProgress < flipMax) {
         flipBook.setAttribute('flip-progress', flipProgress + 2);
 
         updateFlipbooks();
