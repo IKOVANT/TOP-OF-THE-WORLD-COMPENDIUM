@@ -86,7 +86,7 @@ document.onkeypress = function (e) {
             previousComic();''
             break;
         case 'Digit1':
-            window.open('../', '_self');
+            window.open('../'+githubPrefix, '_self');
             break;
     };
 };
