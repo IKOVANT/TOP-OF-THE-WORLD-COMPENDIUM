@@ -33,7 +33,7 @@ var loadedChapter = chapterLookup[queryChapter] != null ? written_chapters[chapt
 
 let comicElement = document.getElementsByClassName('comic')[0];
 
-let githubPrefix = window.location.href.includes('github.io') ? 'TOP-OF-THE-WORLD-COMPENDIUM' : '';
+let githubPrefix = window.location.href.includes('github.io') ? 'TOP-OF-THE-WORLD-COMPENDIUM/' : '';
 
 // Contents
 

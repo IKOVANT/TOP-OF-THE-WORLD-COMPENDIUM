@@ -5,7 +5,7 @@ import { chapterLengths } from "./Modules/fileSources.js";
 // Variables
 let chapterSelectElement = document.getElementById('chapterSelect');
 
-let githubPrefix = window.location.href.includes('github.io') ? 'TOP-OF-THE-WORLD-COMPENDIUM' : '';
+let githubPrefix = window.location.href.includes('github.io') ? 'TOP-OF-THE-WORLD-COMPENDIUM/' : '';
 
 // Contents
 
