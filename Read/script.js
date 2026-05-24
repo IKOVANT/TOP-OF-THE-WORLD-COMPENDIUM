@@ -36,7 +36,7 @@ let comicElement = document.getElementsByClassName('comic')[0];
 // Contents
 
 if (window.location.search == '' || chapterLookup[queryChapter] == null) {
-    window.location.replace('../Read/?chapter=1');
+    window.location.replace('Read/?chapter=1');
 };
 
 console.log(written_chapters[chapterLookup[queryChapter]].pages.length);
