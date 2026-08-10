@@ -13,18 +13,18 @@ for (let chapter = 0; chapter < sequential_chapter_pointers.length; chapter++) {
     let chapterPointer = sequential_chapter_pointers[chapter];
 
     let chapterHolderElement = document.createElement('a');
-        chapterHolderElement.classList = 'chapterLink flex horizontal';
+        chapterHolderElement.classList = 'chapterLink flex vertical';
         chapterHolderElement.href = 'Read/?chapter=' + (chapter + 1);
 
         let chapterImageElement = document.createElement('img');
-            chapterImageElement.classList = 'chapterThumbnail';
+            chapterImageElement.classList = 'chapterThumbnail big';
             chapterImageElement.src = written_chapters[chapterPointer].pages[0].URL;
 
         chapterHolderElement.appendChild(chapterImageElement);
 
         let chapterTitleElement = document.createElement('p');
             chapterTitleElement.classList = 'chapterTitle';
-            chapterTitleElement.innerHTML = written_chapters[chapterPointer].title;
+            chapterTitleElement.innerText = written_chapters[chapterPointer].title.replace(' - ', '\n - ');
 
         chapterHolderElement.appendChild(chapterTitleElement);
     chapterSelectElement.appendChild(chapterHolderElement);
