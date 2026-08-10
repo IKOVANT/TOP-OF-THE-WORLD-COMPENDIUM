@@ -1,12 +1,18 @@
 .chapterLink {
     color: #fff;
 
-    background-color: black;
-    width: fit-content;
+    background-image: radial-gradient(at 20% 0%, #fff, #0004 50%), linear-gradient(#0000 230px, #0004 0%);
+    width: min-content;
 
-    padding: var(--global-padding);
-    padding-right: calc(4 * var(--global-padding));
+    padding: calc(var(--global-padding) / 2);
 }
 .chapterThumbnail {
-    height: 128px;
+    min-width: 168px;
+    background-color: #0008;
+
+    box-shadow: 0px 0px 8px #000a;
+}
+.chapterTitle {
+    padding: 0px;
+    margin: 0px;
 }
