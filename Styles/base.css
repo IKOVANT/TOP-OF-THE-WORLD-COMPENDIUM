@@ -7,13 +7,38 @@
   src: url('../Resources/Fonts/Street Humouresque.TTF');
 }
 :root {
-    --background-color: rgb(128, 128, 128);
-    --button-color: rgb(64, 64, 64);
+    /* Theme colors */
+        --background-color: rgb(64, 64, 64);
+        --midground-color: rgb(96, 96, 96);
+        --foreground-color: rgb(128, 128, 128);
 
-    --global-padding: 8px;
+        --button-color: rgb(64, 64, 64);
 
-    font-family: 'Street Humouresque';
-    background-color: var(--background-color);
+        --highlight-color: rgb(255, 255, calc(256 - 16));
+
+        --shadow-color: rgb(32, 24, 36);
+
+    /* Global vars */
+        --global-padding: 8px;
+
+        --global-gap: calc(var(--global-padding) / 2);
+
+        --global-radius-small: calc(var(--global-radius) / 2);
+        --global-radius: 4px;
+        --global-radius-large: calc(var(--global-radius) * 2);
+
+        --global-depth: 8px;
+        --global-depth-half: calc(var(--global-depth) / 2);
+        --global-depth-double: calc(var(--global-depth) * 2);
+
+    /* Individual vars */
+        --self-bg-color: var(--foreground-color);
+
+        --self-depth: var(--global-depth);
+
+    /* Top level styling */
+        font-family: 'Street Humouresque';
+        background-color: var(--background-color);
 }
 
 
@@ -43,6 +68,22 @@
     }
 
 /* Classes */
+    .background, .midground, .foreground {
+        background-color: rgba(from var(--self-bg-color) r g b / 0.8);
+
+        backdrop-filter: blur(16px) brightness(2) contrast(4) brightness(0.5);
+    }
+
+    .background {
+        --self-bg-color: var(--background-color);
+    }
+    .midground {
+        --self-bg-color: var(--midground-color);
+    }
+    .foreground {
+        --self-bg-color: var(--foreground-color);
+    }
+
     .flex {
         display: flex;
         gap: var(--global-padding);
@@ -74,3 +115,33 @@
         top: 0px;
         height: 100%;
     }
+
+    .fixed_bg_inset {
+        position: fixed;
+
+        left: var(--global-padding);
+        top: var(--global-padding);
+        width: calc(100vw - (var(--global-padding) * 2));
+        height: calc(100vh - (var(--global-padding) * 2));
+    }
+
+    .pad {
+        padding: var(--global-padding);
+    }
+    .nopad {
+        padding: 0px;
+    }
+    .nomoarge {
+        margin: 0px;
+    }
+
+    /* Depth */
+        .depth_none {
+            --self-depth: 0px;
+        }
+        .depth_lower {
+            --self-depth: var(--global-depth-half);
+        }
+        .depth_raise {
+            --self-depth: var(--global-depth-double);
+        }

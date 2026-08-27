@@ -30,6 +30,7 @@ var chapterLookup = {
 
 var queryChapter = window.location.search != '' ? window.location.search.split('chapter=')[1].split('&')[0] : '1';
 var loadedChapter = chapterLookup[queryChapter] != null ? written_chapters[chapterLookup[queryChapter]] : 'TOTW #1';
+var chapterTitle = chapterLookup[queryChapter].replace('TOTW', 'top of the world');
 
 let comicElement = document.getElementsByClassName('comic')[0];
 
@@ -43,7 +44,7 @@ if (window.location.search == '' || chapterLookup[queryChapter] == null) {
 
 console.log(written_chapters[chapterLookup[queryChapter]].pages.length);
 
-document.getElementById('header').innerHTML = loadedChapter.title;
+document.getElementById('header').innerHTML = chapterTitle;
 
 comicElement.innerHTML = '';
 

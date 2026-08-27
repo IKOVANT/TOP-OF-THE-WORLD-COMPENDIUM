@@ -11,16 +11,33 @@
         <link href="styles.css" rel="stylesheet">
     </head>
     <body class="flex">
-        <h1>THE TOP OF THE WORLD COMPENDIUM</h1>
-        <div class="flex horizontal grow" style="justify-content: space-evenly;">
-            <div class="grow">
-                <h2>Start reading</h2>
+        <img src="SMART://TOTW #9 - Pg.6" class="fixed_bg_inset" style="object-fit: cover; filter: blur(8px) saturate(2) brightness(0.5) contrast(2);"></img>
+        <div class="flex vertical foreground shadow drop_shadow edge_soften edge_normalize big_ass_shadow pad top_glint round" style="max-width: 1024px; min-height: fit-content; height: 100%; align-self: center;">
+            <h1>THE TOP OF THE WORLD COMPENDIUM</h1>
+            <div class="foreground pad round shadow drop_shadow edge_normalize edge_soften depth_lower" style="width: fit-content; height: min-content;">
                 <a href="Read/?chapter=1">
-                    <div>Read now!</div>
-                    <img src="SMART://TOTW #1 - Cover" style="height: 128px;">
-                    <img src="SMART://TOTW #2 - Cover" style="height: 128px;">
+                    <div>
+                        <h2 id="read_now_text" class="nopad nomoarge" style="color: #ddd; z-index: 10;">Read now!</h2>
+                        <div id="read_now_flip_pages" style="position: relative; width: fit-content; height: 128px; z-index: -1;">
+                            <div class="shadow edge_soften" style="--self_order: 1; position: absolute; width: 100%; height: 100%; z-index: 1;"></div>
+                            <img src="SMART://TOTW #1 - Cover" class="shadow drop_shadow" style="--self_order: 1; height: 128px; z-index: 1;">
+                            <div class="shadow edge_soften" style="--self_order: 2; position: absolute; top: 0px; width: 100%; height: 100%; z-index: -1;"></div>
+                            <img src="SMART://TOTW #1 - Pg.1" class="shadow drop_shadow" style="--self_order: 2; position: absolute; left: 0px; height: 128px; z-index: -1;">
+                            <div class="shadow edge_soften" style="--self_order: 3; position: absolute; top: 0px; width: 100%; height: 100%; z-index: -2;"></div>
+                            <img src="SMART://TOTW #1 - Pg.3" class="shadow drop_shadow" style="--self_order: 3; position: absolute; left: 0px; height: 128px; z-index: -2;">
+                            <div class="shadow edge_soften" style="--self_order: 4; position: absolute; top: 0px; width: 100%; height: 100%; z-index: -3;"></div>
+                            <img src="SMART://TOTW #1 - Pg.5" class="shadow drop_shadow" style="--self_order: 4; position: absolute; left: 0px; height: 128px; z-index: -3;">
+                        </div>
+                    </div>
                 </a>
-                <br>
+            </div>
+
+            <div style="position: relative;">
+                <h2>Chapter select</h2>
+                <div id="chapterSelect" class="flex horizontal" style="overflow-x: scroll; width: calc(256px * 3); max-width: 90vw;"></div>
+            </div>
+
+            <div>
                 <h3>See also</h3>
                 <a href="NGSERIES://534511/top-of-the-world">
                         TOTW on Newgrounds
@@ -54,22 +71,21 @@
                 <a href="Roadmap/">The COMPENDIUM roadmap</a>
             </div>
 
-            <div class="seperator"></div>
-            
-            <div class="grow" style="max-width: 60%;">
-                <h2>Chapter select</h2>
-                <div id="chapterSelect" class="flex horizontal wrap"></div>
+            <div>
+                <h3>Help support this site</h3>
+                <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="lemonic" data-color="#FFDD00" data-emoji="🚬"  data-font="Bree" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
             </div>
+
+            <!-- Footer -->
+            <div class="seperator"></div>
+            <footer>
+                <div class="flex horizontal" style="align-items: center;">
+                    <h3>Controls:</h3>
+                    <p>- Read Now! [2]</p>
+                </div>
+            </footer>
         </div>
 
-        <!-- Footer -->
-        <div class="seperator"></div>
-        <footer>
-            <div class="flex horizontal" style="align-items: center;">
-                <h3>Controls:</h3>
-                <p>- Read Now! [2]</p>
-            </div>
-        </footer>
         <script src="script.js" type="module"></script>
     </body>
 </html>

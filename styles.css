@@ -1,18 +1,61 @@
-.chapterLink {
-    color: #fff;
+#read_now_text {
+    transform: translateZ(0px);
 
-    background-image: radial-gradient(at 20% 0%, #fff, #0004 50%), linear-gradient(90deg, #0000 64px, #0008 0%);
-    width: min-content;
+    transition: all 0.15s ease-in;
+}
+*:has(>#read_now_flip_pages) > #read_now_flip_pages {
+    perspective: 512px;
+    perspective-origin: -25% 75%;
 
-    padding: calc(var(--global-padding) / 2);
-}
-.chapterThumbnail {
-    min-width: 64px;
-    background-color: #0008;
+    >* {
+        transform:
+            translateX(calc((var(--self_order) * (8px / (var(--self_order) + 1))) - 4px))
+        ;
 
-    box-shadow: 0px 0px 8px #000a;
+        transition: all 0.15s cubic-bezier(0.25, -0.2, 0.75, 1.1);
+    }
 }
-.chapterTitle {
-    padding: 0px;
-    margin: 0px;
+*:hover:has(>#read_now_flip_pages) {
+    display: inline block;
+
+    perspective: 512px !important;
+    perspective-origin: 50% 75% !important;
+
+    :first-child {
+        transform: translateY(-16px) scale(1.25) rotateX(30deg);
+
+        text-shadow: 0px 2px 2px #000;
+    }
+    > #read_now_flip_pages >* {
+        transform:
+            translateZ(32px)
+            translateX(-5%)
+        
+            rotateY(-30deg)
+            
+            translateX(-50%)
+            rotateY(calc(-60deg + (var(--self_order) * 15deg)))
+            translateX(50%)
+        ;
+    }
 }
+
+/* Classes */
+    .chapterLink {
+        color: #fff;
+
+        background-image: radial-gradient(at 20% 0%, #fff, #0004 50%), linear-gradient(90deg, #0000 64px, #0008 0%);
+        width: min-content;
+
+        padding: calc(var(--global-padding) / 2);
+    }
+    .chapterThumbnail {
+        min-width: 64px;
+        background-color: #0008;
+
+        box-shadow: 0px 0px 8px #000a;
+    }
+    .chapterTitle {
+        padding: 0px;
+        margin: 0px;
+    }

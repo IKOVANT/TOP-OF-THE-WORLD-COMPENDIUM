@@ -19,6 +19,64 @@ footer {
     max-height: 512px;
 }
 
+.shadow {
+    --self-drop-shadow: 0px 0px 0px;
+    --self-big-ass-shadow: 0px 0px 0px;
+
+    --self-inset-shadow: inset 0px 0px 0px;
+
+    --self-edge-normalize: inset 0px 0px 0px;
+    --self-edge-darken: inset 0px 0px 0px;
+
+    box-shadow:
+        var(--self-drop-shadow),
+        var(--self-big-ass-shadow),
+
+        var(--self-inset-shadow),
+
+        var(--self-edge-darken),
+        var(--self-edge-normalize)
+    ;
+
+    &.flat_shadow {
+        --self-drop-shadow: 0px 0px var(--self-depth) var(--shadow-color);
+    }
+    &.drop_shadow {
+        --self-drop-shadow: 0px calc(var(--self-depth) / 2) var(--self-depth) var(--shadow-color);
+    }
+    &.big_ass_shadow {
+        --self-big-ass-shadow: 0px calc(var(--self-depth) * 8) calc(var(--self-depth) * 16) var(--shadow-color);
+    }
+
+    &.inset_shadow {
+        --self-inset-shadow: inset 0px calc(var(--self-depth) / 2) var(--self-depth) var(--shadow-color);
+    }
+
+    &.edge_soften {
+        --self-edge-darken: inset 0px 0px var(--global-padding) var(--global-gap) rgba(from var(--shadow-color) r g b / 0.25);
+    }
+    &.edge_normalize {
+        --self-edge-normalize: inset 0px 0px var(--global-padding) var(--global-gap) var(--self-bg-color);
+    }
+}
+
+.top_glint {
+    background-image:
+        linear-gradient(
+            rgba(from var(--highlight-color) r g b / 0.5),
+            rgba(from var(--highlight-color) r g b / 0) 45%,
+            #0000 55%
+        )
+    ;
+}
+
+.round {
+    border-radius: var(--global-radius);
+}
+    .rounder {
+        border-radius: var(--global-radius-large);
+    }
+
 .megaFlipBook {
     perspective: 2048px;
     flex-grow: 1;
